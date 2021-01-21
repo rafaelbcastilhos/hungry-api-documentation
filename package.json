@@ -1,0 +1,15 @@
+{
+  "name": "myfood-api-documentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.yml",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rafaelbcastilhos",
+  "license": "ISC",
+  "dependencies": {
+    "json2yaml": "^1.1.0",
+    "multi-file-swagger": "^2.3.0"
+  }
+}
