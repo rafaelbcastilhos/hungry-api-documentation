@@ -1,0 +1,20 @@
+#https://documenter.getpostman.com/view/11505569/TVzVjGAY
+openapi: 3.0.2
+info:
+  "$ref": "./common/info.yml"
+
+servers:
+  "$ref": "./common/servers.yml"
+
+tags:
+  "$ref": "./common/tags.yml"
+
+paths:
+  "$ref": "./common/paths.yml"
+
+components:
+  securitySchemes:
+    "$ref": "./components/security_schemes.yml"
+
+  schemas:
+    "$ref": "./components/schemas.yml"

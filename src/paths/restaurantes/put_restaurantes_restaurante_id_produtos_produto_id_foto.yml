@@ -1,0 +1,59 @@
+tags:
+  - Produtos
+summary: Atualiza a foto do produto de um restaurante
+operationId: atualizarFotoUsingPUT
+consumes:
+  - multipart/form-data
+produces:
+  - application/json
+parameters:
+  - name: arquivo
+    in: formData
+    description: 'Arquivo da foto do produto (máximo 500KB, apenas JPG e PNG)'
+    required: true
+    type: file
+  - name: descricao
+    in: query
+    description: Descrição da foto do produto
+    required: true
+    type: string
+  - name: produtoId
+    in: path
+    description: ID do produto
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+  - name: restauranteId
+    in: path
+    description: ID do restaurante
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: Foto do produto atualizada
+    schema:
+      $ref: '#/components/schemas/FotoProdutoModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Produto de restaurante não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - apiKeyAuth: []
+deprecated: false

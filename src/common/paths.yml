@@ -1,0 +1,203 @@
+/v1/cidades:
+  get:
+    "$ref": "../paths/cidades/get_cidades.yml"
+  post:
+    "$ref": "../paths/cidades/post_cidades.yml"
+
+'/v1/cidades/{cidadeId}':
+  get:
+    "$ref": "../paths/cidades/get_cidades_cidade_id.yml"
+  put:
+    "$ref": "../paths/cidades/put_cidades_cidade_id.yml"
+  delete:
+    "$ref": "../paths/cidades/delete_cidades_cidade_id.yml"
+
+/v1/cozinhas:
+  get:
+    "$ref": "../paths/cozinhas/get_cozinhas.yml"
+  post:
+    "$ref": "../paths/cozinhas/post_cozinhas.yml"
+
+'/v1/cozinhas/{cozinhaId}':
+  get:
+    "$ref": "../paths/cozinhas/get_cozinhas_cozinha_id.yml"
+  put:
+    "$ref": "../paths/cozinhas/put_cozinhas_cozinha_id.yml"
+  delete:
+    "$ref": "../paths/cozinhas/delete_cozinhas_cozinha_id.yml"
+
+/v1/estados:
+  get:
+    "$ref": "../paths/estados/get_estados.yml"
+  post:
+    "$ref": "../paths/estados/post_estados.yml"
+
+'/v1/estados/{estadoId}':
+  get:
+    "$ref": "../paths/estados/get_estados_estado_id.yml"
+  put:
+    "$ref": "../paths/estados/put_estados_estado_id.yml"
+  delete:
+    "$ref": "../paths/estados/delete_estados_estado_id.yml"
+
+/v1/estatisticas/vendas-diarias:
+  get:
+    "$ref": "../paths/estatisticas/get_vendas_diarias.yml"
+
+/v1/formas-pagamento:
+  get:
+    "$ref": "../paths/formas_pagamento/get_formas_pagamento.yml"
+  post:
+    "$ref": "../paths/formas_pagamento/post_formas_pagamento.yml"
+
+'/v1/formas-pagamento/{formaPagamentoId}':
+  get:
+    "$ref": "../paths/formas_pagamento/get_formas_pagamento_forma_pagamento_id.yml"
+
+/v1/grupos:
+  get:
+    "$ref": "../paths/grupos/get_grupos.yml"
+  post:
+    "$ref": "../paths/grupos/post_grupos.yml"
+
+'/v1/grupos/{grupoId}':
+  get:
+    "$ref": "../paths/grupos/get_grupos_grupo_id.yml"
+  put:
+    "$ref": "../paths/grupos/put_grupos_grupo_id.yml"
+  delete:
+    "$ref": "../paths/grupos/delete_grupos_grupo_id.yml"
+
+'/v1/grupos/{grupoId}/permissoes':
+  get:
+    "$ref": "../paths/grupos/permissoes/get_permissoes_grupo_id.yml"
+
+'/v1/grupos/{grupoId}/permissoes/{permissaoId}':
+  put:
+    "$ref": "../paths/grupos/permissoes/put_permissoes_permissao_id.yml"
+  delete:
+    "$ref": "../paths/grupos/permissoes/delete_permissoes_permissao_id.yml"
+
+/v1/pedidos:
+  get:
+    "$ref": "../paths/pedidos/get_pedidos.yml"
+  post:
+    "$ref": "../paths/pedidos/post_pedidos.yml"
+
+'/v1/pedidos/{codigoPedido}':
+  get:
+    "$ref": "../paths/pedidos/get_pedidos_codigo.yml"
+
+'/v1/pedidos/{codigoPedido}/cancelamento':
+  put:
+    "$ref": "../paths/pedidos/put_pedidos_codigo_cancelamento.yml"
+
+'/v1/pedidos/{codigoPedido}/confirmacao':
+  put:
+    "$ref": "../paths/pedidos/put_pedidos_codigo_confirmacao.yml"
+
+'/v1/pedidos/{codigoPedido}/entrega':
+  put:
+    "$ref": "../paths/pedidos/put_pedidos_codigo_entrega.yml"
+
+/v1/permissoes:
+  get:
+    "$ref": "../paths/permissoes/get_permissoes.yml"
+
+/v1/restaurantes:
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes.yml"
+  post:
+    "$ref": "../paths/restaurantes/post_restaurantes.yml"
+
+/v1/restaurantes/ativacoes:
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_ativacoes.yml"
+  delete:
+    "$ref": "../paths/restaurantes/delete_restaurantes_ativacoes.yml"
+
+'/v1/restaurantes/{restauranteId}':
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes_restaurante_id.yml"
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id.yml"
+
+'/v1/restaurantes/{restauranteId}/abertura':
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_abertura.yml"
+
+'/v1/restaurantes/{restauranteId}/ativo':
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_ativo.yml"
+  delete:
+    "$ref": "../paths/restaurantes/delete_restaurantes_restaurante_id_ativo.yml"
+
+'/v1/restaurantes/{restauranteId}/fechamento':
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_fechamento.yml"
+
+'/v1/restaurantes/{restauranteId}/formas-pagamento':
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes_restaurante_id_forma_pagamento.yml"
+
+'/v1/restaurantes/{restauranteId}/formas-pagamento/{formaPagamentoId}':
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_forma_pagamento_forma_pagamento_id.yml"
+  delete:
+    "$ref": "../paths/restaurantes/delete_restaurantes_restaurante_id_forma_pagamento_forma_pagamento_id.yml"
+
+'/v1/restaurantes/{restauranteId}/produtos':
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes_restaurante_id_produtos.yml"
+  post:
+    "$ref": "../paths/restaurantes/post_restaurantes_restaurante_id_produtos.yml"
+
+'/v1/restaurantes/{restauranteId}/produtos/{produtoId}':
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes_restaurante_id_produtos_produto_id.yml"
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_produtos_produto_id.yml"
+
+'/v1/restaurantes/{restauranteId}/produtos/{produtoId}/foto':
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes_restaurante_id_produtos_produto_id_foto.yml"
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_produtos_produto_id_foto.yml"
+  delete:
+    "$ref": "../paths/restaurantes/delete_restaurantes_restaurante_id_produtos_produto_id_foto.yml"
+
+'/v1/restaurantes/{restauranteId}/responsaveis':
+  get:
+    "$ref": "../paths/restaurantes/get_restaurantes_restaurante_id_responsaveis.yml"
+
+'/v1/restaurantes/{restauranteId}/responsaveis/{usuarioId}':
+  put:
+    "$ref": "../paths/restaurantes/put_restaurantes_restaurante_id_responsaveis_usuario_id.yml"
+  delete:
+    "$ref": "../paths/restaurantes/delete_restaurantes_restaurante_id_responsaveis_usuario_id.yml"
+
+/v1/usuarios:
+  get:
+    "$ref": "../paths/usuarios/get_usuarios.yml"
+  post:
+    "$ref": "../paths/usuarios/post_usuarios.yml"
+
+'/v1/usuarios/{usuarioId}':
+  get:
+    "$ref": "../paths/usuarios/get_usuarios_usuario_id.yml"
+  put:
+    "$ref": "../paths/usuarios/put_usuarios_usuario_id.yml"
+
+'/v1/usuarios/{usuarioId}/grupos':
+  get:
+    "$ref": "../paths/usuarios/get_usuarios_usuario_id_grupos.yml"
+
+'/v1/usuarios/{usuarioId}/grupos/{grupoId}':
+  put:
+    "$ref": "../paths/usuarios/put_usuarios_usuario_id_grupos_grupo_id.yml"
+  delete:
+    "$ref": "../paths/usuarios/delete_usuarios_usuario_id_grupos_grupo_id.yml"
+
+'/v1/usuarios/{usuarioId}/senha':
+  put:
+    "$ref": "../paths/usuarios/put_usuarios_usuario_id_senha.yml"

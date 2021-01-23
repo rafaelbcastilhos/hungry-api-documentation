@@ -1,0 +1,32 @@
+tags:
+  - Usuários
+summary: Lista os grupos associados a um usuário
+operationId: listarUsingGET_12
+produces:
+  - application/json
+parameters:
+  - name: usuarioId
+    in: path
+    description: ID do usuário
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/GruposModel'
+  '404':
+    description: Usuário não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

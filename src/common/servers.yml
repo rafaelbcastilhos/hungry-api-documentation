@@ -1,0 +1,8 @@
+- url: https://api.hungrydelivery.com
+  variables:
+    basePath:
+      default: https://api.hungrydelivery.com
+    environment:
+      default: v1
+    protocol:
+      default: https
