@@ -1,0 +1,48 @@
+tags:
+  - Usuários
+summary: Atualiza um usuário por ID
+operationId: atualizarUsingPUT_7
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: Representação de um usuário com os novos dados
+    required: true
+    schema:
+      $ref: '#/components/schemas/UsuarioInput'
+  - name: usuarioId
+    in: path
+    description: ID do usuário
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: Usuário atualizado
+    schema:
+      $ref: '#/components/schemas/UsuarioModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Usuário não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

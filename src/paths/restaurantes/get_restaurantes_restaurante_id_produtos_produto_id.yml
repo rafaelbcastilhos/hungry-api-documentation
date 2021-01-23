@@ -1,0 +1,43 @@
+tags:
+  - Produtos
+summary: Busca um produto de um restaurante
+operationId: buscarUsingGET_7
+produces:
+  - application/json
+parameters:
+  - name: produtoId
+    in: path
+    description: ID do produto
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+  - name: restauranteId
+    in: path
+    description: ID do restaurante
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/ProdutoModel'
+  '400':
+    description: ID do restaurante ou produto inválido
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Produto de restaurante não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - apiKeyAuth: []
+deprecated: false

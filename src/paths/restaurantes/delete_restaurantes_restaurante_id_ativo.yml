@@ -1,0 +1,32 @@
+tags:
+  - Restaurantes
+summary: Inativa um restaurante por ID
+operationId: inativarUsingDELETE
+produces:
+  - application/json
+parameters:
+  - name: restauranteId
+    in: path
+    description: ID de um restaurante
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '204':
+    description: Restaurante inativado com sucesso
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Restaurante não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - apiKeyAuth: []
+deprecated: false

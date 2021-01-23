@@ -1,0 +1,30 @@
+tags:
+  - Restaurantes
+summary: Inativa múltiplos restaurantes
+operationId: inativarMultiplosUsingDELETE
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: IDs de restaurantes
+    required: true
+    schema:
+      type: array
+      items:
+        type: integer
+        format: int64
+responses:
+  '204':
+    description: Restaurantes ativados com sucesso
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - apiKeyAuth: []
+deprecated: false

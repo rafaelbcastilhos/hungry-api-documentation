@@ -1,0 +1,39 @@
+tags:
+  - Restaurantes
+summary: Desassociação de restaurante com forma de pagamento
+operationId: desassociarUsingDELETE_1
+produces:
+  - application/json
+parameters:
+  - name: formaPagamentoId
+    in: path
+    description: ID da forma de pagamento
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+  - name: restauranteId
+    in: path
+    description: ID do restaurante
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '204':
+    description: Desassociação realizada com sucesso
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Restaurante ou forma de pagamento não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - apiKeyAuth: []
+deprecated: false
