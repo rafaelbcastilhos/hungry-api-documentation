@@ -1,0 +1,19 @@
+description:
+  |-
+  **Bem-vindo à documentação da API do hungrydelivery.** Este documento foi projetado para ajudar os desenvolvedores e usuários do hungrydelivery a compreender e integrar totalmente nossas APIs para uma implantação **fácil** e **contínua**.
+
+  As APIs são listadas junto com seus parâmetros obrigatórios, se houver, e seus exemplos de solicitações e respostas à direita, para melhor compreensão. A maneira mais fácil de começar a usar as APIs do hungrydelivery é clicando no botão **Executar no Postman** acima. [Postman](https://www.getpostman.com/) é uma ferramenta gratuita que ajuda os desenvolvedores a executar e depurar solicitações de API.
+
+  Nossas APIs são baseadas na arquitetura [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) e usam os métodos básicos de solicitação [HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods) . Nossas APIs aceitam solicitações de corpo codificado em [JSON](https://www.w3schools.com/whatis/whatis_json.asp) e retornam dados da mesma forma.
+
+  # Guia de utilização
+  - Nossas APIs usam os códigos de solicitação HTTP básicos: _POST_, _GET_, _PATCH_, _PUT_ e _DELETE_.
+  - Você pode selecionar a resposta necessária de acordo com o código de status e solicitar a linguagem de programação do código selecionando-o no menu suspenso na parte superior.
+  - Você pode testar todas as nossas APIs importando a coleção completa de APIs por meio do botão **'Executar no Postman'** e executando-as no aplicativo Postman.
+
+  # Autenticação
+    - Nos recursos que possuem o ícone de cadeado (🔒), necessariamente é requisitado uma forma de autenticação na solicitação. Essa autenticação é realizada por intermédio do Bearer Token ou API Key. Observe que, para usar os modos de autenticação, você precisará passar o token ou a chave da API no seguinte formato no cabeçalho apropriado.
+    - Em casos de autenticação de usuário, será utilizado o `Authorization: Bearer <SEU_TOKEN>`, a cada tentativa de login bem sucedida será gerado um novo token.
+    - Em casos de autenticação de clientes, será utilizado a `x-api-key: <SUA_CHAVE>`, esta por sua vez é estática e única para cada cliente.
+version: 1.0.0
+title: hungrydelivery API

@@ -1,0 +1,20 @@
+- name: Cidades
+  description: Gerencia as cidades
+- name: Cozinhas
+  description: Gerencia as cozinhas
+- name: Estados
+  description: Gerencia os estados
+- name: Estatísticas
+  description: Estatísticas da AlgaFood
+- name: Formas de pagamento
+  description: Gerencia as formas de pagamento
+- name: Grupos
+  description: Gerencia os grupos de usuários
+- name: Pedidos
+  description: Gerencia os pedidos
+- name: Produtos
+  description: Gerencia os produtos de restaurantes
+- name: Restaurantes
+  description: Gerencia os restaurantes
+- name: Usuários
+  description: Gerencia os usuários

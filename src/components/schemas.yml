@@ -1,0 +1,840 @@
+CidadeIdInput:
+  type: object
+  required:
+    - id
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 1
+  title: CidadeIdInput
+CidadeInput:
+  type: object
+  required:
+    - estado
+    - nome
+  properties:
+    estado:
+      $ref: '#/components/schemas/EstadoIdInput'
+    nome:
+      type: string
+      example: Uberlândia
+  title: CidadeInput
+CidadeModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    estado:
+      $ref: '#/components/schemas/EstadoModel'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Uberlândia
+  title: CidadeModel
+CidadeResumoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    estado:
+      type: string
+      example: Minas Gerais
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Uberlândia
+  title: CidadeResumoModel
+CidadesEmbeddedModel:
+  type: object
+  properties:
+    cidades:
+      type: array
+      items:
+        $ref: '#/components/schemas/CidadeModel'
+  title: CidadesEmbeddedModel
+CidadesModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/CidadesEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: CidadesModel
+CozinhaIdInput:
+  type: object
+  required:
+    - id
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 1
+  title: CozinhaIdInput
+CozinhaInput:
+  type: object
+  required:
+    - nome
+  properties:
+    nome:
+      type: string
+      example: Brasileira
+  title: CozinhaInput
+CozinhaModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Brasileira
+  title: CozinhaModel
+CozinhasEmbeddedModel:
+  type: object
+  properties:
+    cozinhas:
+      type: array
+      items:
+        $ref: '#/components/schemas/CozinhaModel'
+  title: CozinhasEmbeddedModel
+CozinhasModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/CozinhasEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+    page:
+      $ref: '#/components/schemas/PageModel'
+  title: CozinhasModel
+EnderecoInput:
+  type: object
+  required:
+    - bairro
+    - cep
+    - cidade
+    - logradouro
+    - numero
+  properties:
+    bairro:
+      type: string
+      example: Centro
+    cep:
+      type: string
+      example: 38400-000
+    cidade:
+      $ref: '#/components/schemas/CidadeIdInput'
+    complemento:
+      type: string
+      example: Apto 901
+    logradouro:
+      type: string
+      example: Rua Floriano Peixoto
+    numero:
+      type: string
+      example: '1500'
+  title: EnderecoInput
+EnderecoModel:
+  type: object
+  properties:
+    bairro:
+      type: string
+      example: Centro
+    cep:
+      type: string
+      example: 38400-000
+    cidade:
+      $ref: '#/components/schemas/CidadeResumoModel'
+    complemento:
+      type: string
+      example: Apto 901
+    logradouro:
+      type: string
+      example: Rua Floriano Peixoto
+    numero:
+      type: string
+      example: '1500'
+  title: EnderecoModel
+EstadoIdInput:
+  type: object
+  required:
+    - id
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 1
+  title: EstadoIdInput
+EstadoInput:
+  type: object
+  required:
+    - nome
+  properties:
+    nome:
+      type: string
+      example: Minas Gerais
+  title: EstadoInput
+EstadoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Minas Gerais
+  title: EstadoModel
+EstadosEmbeddedModel:
+  type: object
+  properties:
+    estados:
+      type: array
+      items:
+        $ref: '#/components/schemas/EstadoModel'
+  title: EstadosEmbeddedModel
+EstadosModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/EstadosEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: EstadosModel
+EstatisticasModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: EstatisticasModel
+FormaPagamentoIdInput:
+  type: object
+  required:
+    - id
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 1
+  title: FormaPagamentoIdInput
+FormaPagamentoInput:
+  type: object
+  required:
+    - descricao
+  properties:
+    descricao:
+      type: string
+      example: Cartão de crédito
+  title: FormaPagamentoInput
+FormaPagamentoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    descricao:
+      type: string
+      example: Cartão de crédito
+    id:
+      type: integer
+      format: int64
+      example: 1
+  title: FormaPagamentoModel
+FormasPagamentoEmbeddedModel:
+  type: object
+  properties:
+    formasPagamento:
+      type: array
+      items:
+        $ref: '#/components/schemas/FormaPagamentoModel'
+  title: FormasPagamentoEmbeddedModel
+FormasPagamentoModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/FormasPagamentoEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: FormasPagamentoModel
+FotoProdutoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    contentType:
+      type: string
+      example: image/jpeg
+    descricao:
+      type: string
+      example: Prime Rib ao ponto
+    nomeArquivo:
+      type: string
+      example: b8bbd21a-4dd3-4954-835c-3493af2ba6a0_Prime-Rib.jpg
+    tamanho:
+      type: integer
+      format: int64
+      example: 202912
+  title: FotoProdutoModel
+GrupoInput:
+  type: object
+  required:
+    - nome
+  properties:
+    nome:
+      type: string
+      example: Gerente
+  title: GrupoInput
+GrupoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Gerente
+  title: GrupoModel
+GruposEmbeddedModel:
+  type: object
+  properties:
+    grupos:
+      type: array
+      items:
+        $ref: '#/components/schemas/GrupoModel'
+  title: GruposEmbeddedModel
+GruposModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/GruposEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: GruposModel
+ItemPedidoInput:
+  type: object
+  required:
+    - produtoId
+    - quantidade
+  properties:
+    observacao:
+      type: string
+      example: 'Menos picante, por favor'
+    produtoId:
+      type: integer
+      format: int64
+      example: 1
+    quantidade:
+      type: integer
+      format: int32
+      example: 2
+  title: ItemPedidoInput
+ItemPedidoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    observacao:
+      type: string
+      example: 'Menos picante, por favor'
+    precoTotal:
+      type: number
+      example: 157.8
+    precoUnitario:
+      type: number
+      example: 78.9
+    produtoId:
+      type: integer
+      format: int64
+      example: 1
+    produtoNome:
+      type: string
+      example: Porco com molho agridoce
+    quantidade:
+      type: integer
+      format: int32
+      example: 2
+  title: ItemPedidoModel
+Link:
+  type: object
+  properties:
+    href:
+      type: string
+    templated:
+      type: boolean
+  title: Link
+Links:
+  type: object
+  properties:
+    rel:
+      $ref: '#/components/schemas/Link'
+  title: Links
+ObjetoProblema:
+  type: object
+  properties:
+    name:
+      type: string
+      example: preco
+    userMessage:
+      type: string
+      example: O preço é obrigatório
+  title: ObjetoProblema
+PageModel:
+  type: object
+  properties:
+    number:
+      type: integer
+      format: int64
+      example: 0
+      description: Número da página (começa em 0)
+    size:
+      type: integer
+      format: int64
+      example: 10
+      description: Quantidade de registros por página
+    totalElements:
+      type: integer
+      format: int64
+      example: 50
+      description: Total de registros
+    totalPages:
+      type: integer
+      format: int64
+      example: 5
+      description: Total de páginas
+  title: PageModel
+PedidoInput:
+  type: object
+  required:
+    - enderecoEntrega
+    - formaPagamento
+    - itens
+    - restaurante
+  properties:
+    enderecoEntrega:
+      $ref: '#/components/schemas/EnderecoInput'
+    formaPagamento:
+      $ref: '#/components/schemas/FormaPagamentoIdInput'
+    itens:
+      type: array
+      items:
+        $ref: '#/components/schemas/ItemPedidoInput'
+    restaurante:
+      $ref: '#/components/schemas/RestauranteIdInput'
+  title: PedidoInput
+PedidoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    cliente:
+      $ref: '#/components/schemas/UsuarioModel'
+    codigo:
+      type: string
+      example: f9981ca4-5a5e-4da3-af04-933861df3e55
+    dataCancelamento:
+      type: string
+      format: date-time
+      example: '2019-12-01T20:35:00Z'
+    dataConfirmacao:
+      type: string
+      format: date-time
+      example: '2019-12-01T20:35:10Z'
+    dataCriacao:
+      type: string
+      format: date-time
+      example: '2019-12-01T20:34:04Z'
+    dataEntrega:
+      type: string
+      format: date-time
+      example: '2019-12-01T20:55:30Z'
+    enderecoEntrega:
+      $ref: '#/components/schemas/EnderecoModel'
+    formaPagamento:
+      $ref: '#/components/schemas/FormaPagamentoModel'
+    itens:
+      type: array
+      items:
+        $ref: '#/components/schemas/ItemPedidoModel'
+    restaurante:
+      $ref: '#/components/schemas/RestauranteApenasNomeModel'
+    status:
+      type: string
+      example: CRIADO
+    subtotal:
+      type: number
+      example: 298.9
+    taxaFrete:
+      type: number
+      example: 10
+    valorTotal:
+      type: number
+      example: 308.9
+  title: PedidoModel
+PedidoResumoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    cliente:
+      $ref: '#/components/schemas/UsuarioModel'
+    codigo:
+      type: string
+      example: f9981ca4-5a5e-4da3-af04-933861df3e55
+    dataCriacao:
+      type: string
+      format: date-time
+      example: '2019-12-01T20:34:04Z'
+    restaurante:
+      $ref: '#/components/schemas/RestauranteApenasNomeModel'
+    status:
+      type: string
+      example: CRIADO
+    subtotal:
+      type: number
+      example: 298.9
+    taxaFrete:
+      type: number
+      example: 10
+    valorTotal:
+      type: number
+      example: 308.9
+  title: PedidoResumoModel
+PedidosResumoEmbeddedModel:
+  type: object
+  properties:
+    pedidos:
+      type: array
+      items:
+        $ref: '#/components/schemas/PedidoResumoModel'
+  title: PedidosResumoEmbeddedModel
+PedidosResumoModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/PedidosResumoEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+    page:
+      $ref: '#/components/schemas/PageModel'
+  title: PedidosResumoModel
+PermissaoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    descricao:
+      type: string
+      example: Permite consultar cozinhas
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: CONSULTAR_COZINHAS
+  title: PermissaoModel
+PermissoesEmbeddedModel:
+  type: object
+  properties:
+    permissoes:
+      type: array
+      items:
+        $ref: '#/components/schemas/PermissaoModel'
+  title: PermissoesEmbeddedModel
+PermissoesModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/PermissoesEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: PermissoesModel
+Problema:
+  type: object
+  properties:
+    status:
+      type: integer
+      format: int32
+      example: 400
+    timestamp:
+      type: string
+      format: date-time
+      example: '2019-12-01T18:09:02.70844Z'
+    type:
+      type: string
+      example: 'https://algafood.com.br/dados-invalidos'
+    title:
+      type: string
+      example: Dados inválidos
+    detail:
+      type: string
+      example: Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.
+    userMessage:
+      type: string
+      example: Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.
+    objects:
+      type: array
+      description: Lista de objetos ou campos que geraram o erro (opcional)
+      items:
+        $ref: '#/components/schemas/ObjetoProblema'
+  title: Problema
+ProdutoInput:
+  type: object
+  required:
+    - ativo
+    - descricao
+    - nome
+    - preco
+  properties:
+    ativo:
+      type: boolean
+      example: true
+    descricao:
+      type: string
+      example: 'Acompanha farinha, mandioca e vinagrete'
+    nome:
+      type: string
+      example: Espetinho de Cupim
+    preco:
+      type: number
+      example: 12.5
+  title: ProdutoInput
+ProdutoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    ativo:
+      type: boolean
+      example: true
+    descricao:
+      type: string
+      example: 'Acompanha farinha, mandioca e vinagrete'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Espetinho de Cupim
+    preco:
+      type: number
+      example: 12.5
+  title: ProdutoModel
+ProdutosEmbeddedModel:
+  type: object
+  properties:
+    produtos:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProdutoModel'
+  title: ProdutosEmbeddedModel
+ProdutosModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/ProdutosEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: ProdutosModel
+RestauranteApenasNomeModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Thai Gourmet
+  title: RestauranteApenasNomeModel
+RestauranteBasicoModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    cozinha:
+      $ref: '#/components/schemas/CozinhaModel'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Thai Gourmet
+    taxaFrete:
+      type: number
+      example: 12
+  title: RestauranteBasicoModel
+RestauranteIdInput:
+  type: object
+  required:
+    - id
+  properties:
+    id:
+      type: integer
+      format: int64
+      example: 1
+  title: RestauranteIdInput
+RestauranteInput:
+  type: object
+  required:
+    - cozinha
+    - endereco
+    - nome
+    - taxaFrete
+  properties:
+    cozinha:
+      $ref: '#/components/schemas/CozinhaIdInput'
+    endereco:
+      $ref: '#/components/schemas/EnderecoInput'
+    nome:
+      type: string
+      example: Thai Gourmet
+    taxaFrete:
+      type: number
+      example: 12
+  title: RestauranteInput
+RestauranteModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    aberto:
+      type: boolean
+    ativo:
+      type: boolean
+    cozinha:
+      $ref: '#/components/schemas/CozinhaModel'
+    endereco:
+      $ref: '#/components/schemas/EnderecoModel'
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: Thai Gourmet
+    taxaFrete:
+      type: number
+      example: 12
+  title: RestauranteModel
+RestaurantesBasicoModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/RestaurantesEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: RestaurantesBasicoModel
+RestaurantesEmbeddedModel:
+  type: object
+  properties:
+    restaurantes:
+      type: array
+      items:
+        $ref: '#/components/schemas/RestauranteBasicoModel'
+  title: RestaurantesEmbeddedModel
+SenhaInput:
+  type: object
+  required:
+    - novaSenha
+    - senhaAtual
+  properties:
+    novaSenha:
+      type: string
+      example: 123
+    senhaAtual:
+      type: string
+      example: 123
+  title: SenhaInput
+UsuarioComSenhaInput:
+  type: object
+  required:
+    - email
+    - nome
+    - senha
+  properties:
+    email:
+      type: string
+      example: joao.ger@algafood.com.br
+    nome:
+      type: string
+      example: João da Silva
+    senha:
+      type: string
+      example: 123
+  title: UsuarioComSenhaInput
+UsuarioInput:
+  type: object
+  required:
+    - email
+    - nome
+  properties:
+    email:
+      type: string
+      example: joao.ger@algafood.com.br
+    nome:
+      type: string
+      example: João da Silva
+  title: UsuarioInput
+UsuarioModel:
+  type: object
+  properties:
+    _links:
+      $ref: '#/components/schemas/Links'
+    email:
+      type: string
+      example: joao.ger@algafood.com.br
+    id:
+      type: integer
+      format: int64
+      example: 1
+    nome:
+      type: string
+      example: João da Silva
+  title: UsuarioModel
+UsuariosEmbeddedModel:
+  type: object
+  properties:
+    usuarios:
+      type: array
+      items:
+        $ref: '#/components/schemas/UsuarioModel'
+  title: UsuariosEmbeddedModel
+UsuariosModel:
+  type: object
+  properties:
+    _embedded:
+      $ref: '#/components/schemas/UsuariosEmbeddedModel'
+    _links:
+      $ref: '#/components/schemas/Links'
+  title: UsuariosModel
+VendaDiaria:
+  type: object
+  properties:
+    data:
+      type: string
+      format: date-time
+    totalFaturado:
+      type: number
+    totalVendas:
+      type: integer
+      format: int64
+  title: VendaDiaria
