@@ -1,0 +1,37 @@
+tags:
+  - Cozinhas
+summary: Cadastra uma cozinha
+operationId: adicionarUsingPOST_1
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: Representação de uma nova cozinha
+    required: true
+    schema:
+      $ref: '#/components/schemas/CozinhaInput'
+responses:
+  '201':
+    description: Cozinha cadastrada
+    schema:
+      $ref: '#/components/schemas/CozinhaModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

@@ -1,0 +1,50 @@
+tags:
+  - Cozinhas
+summary: Atualiza uma cozinha por ID
+operationId: atualizarUsingPUT_1
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: Representação de uma cozinha com os novos dados
+    required: true
+    schema:
+      $ref: '#/components/schemas/CozinhaInput'
+  - name: cozinhaId
+    in: path
+    description: ID de uma cozinha
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: Cozinha atualizada
+    schema:
+      $ref: '#/components/schemas/CozinhaModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Cozinha não encontrada
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - AlgaFood:
+      - READ
+      - WRITE
+deprecated: false

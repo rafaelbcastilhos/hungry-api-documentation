@@ -1,0 +1,43 @@
+tags:
+  - Cozinhas
+summary: Lista as cozinhas com paginação
+operationId: listarUsingGET_1
+produces:
+  - application/json
+parameters:
+  - name: page
+    in: query
+    description: Número da página (começa em 0)
+    required: false
+    type: integer
+    format: int32
+    x-example: 0
+  - name: size
+    in: query
+    description: Quantidade de elementos por página
+    required: false
+    type: integer
+    format: int32
+    x-example: 10
+  - name: sort
+    in: query
+    description: Nome da propriedade para ordenação
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/CozinhasModel'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false
