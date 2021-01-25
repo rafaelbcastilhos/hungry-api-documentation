@@ -1,0 +1,32 @@
+tags:
+  - Estados
+summary: Exclui um estado por ID
+operationId: removerUsingDELETE_2
+produces:
+  - application/json
+parameters:
+  - name: estadoId
+    in: path
+    description: ID de um estado
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '204':
+    description: Estado excluído
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Estado não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

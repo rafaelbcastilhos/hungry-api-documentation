@@ -1,0 +1,48 @@
+tags:
+  - Estados
+summary: Atualiza um estado por ID
+operationId: atualizarUsingPUT_2
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: Representação de um estado com os novos dados
+    required: true
+    schema:
+      $ref: '#/components/schemas/EstadoInput'
+  - name: estadoId
+    in: path
+    description: ID de um estado
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: Estado atualizado
+    schema:
+      $ref: '#/components/schemas/EstadoModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Estado não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false
