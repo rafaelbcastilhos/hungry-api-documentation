@@ -1,0 +1,36 @@
+tags:
+  - Estados
+summary: Busca um estado por ID
+operationId: buscarUsingGET_2
+produces:
+  - application/json
+parameters:
+  - name: estadoId
+    in: path
+    description: ID de um estado
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/EstadoModel'
+  '400':
+    description: ID do estado inválido
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Estado não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false
