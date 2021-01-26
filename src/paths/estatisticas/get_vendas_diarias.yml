@@ -1,0 +1,51 @@
+tags:
+  - Estatísticas
+summary: Consulta estatísticas de vendas diárias
+operationId: consultarVendasDiariasUsingGET
+produces:
+  - application/json
+parameters:
+  - name: dataCriacaoFim
+    in: query
+    description: Data/hora final da criação do pedido
+    required: false
+    type: string
+    format: date-time
+    x-example: '2019-12-02T23:59:59Z'
+  - name: dataCriacaoInicio
+    in: query
+    description: Data/hora inicial da criação do pedido
+    required: false
+    type: string
+    format: date-time
+    x-example: '2019-12-01T00:00:00Z'
+  - name: restauranteId
+    in: query
+    description: ID do restaurante
+    required: false
+    type: integer
+    format: int32
+    x-example: 1
+  - name: timeOffset
+    in: query
+    description: Deslocamento de horário a ser considerado na consulta em relação ao UTC
+    required: false
+    type: string
+    default: '+00:00'
+    allowEmptyValue: false
+responses:
+  '200':
+    description: OK
+    schema:
+      type: array
+      items:
+        $ref: '#/components/schemas/VendaDiaria'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

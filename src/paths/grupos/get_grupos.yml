@@ -1,0 +1,20 @@
+tags:
+  - Grupos
+summary: Lista os grupos
+operationId: listarUsingGET_4
+produces:
+  - application/json
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/GruposModel'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

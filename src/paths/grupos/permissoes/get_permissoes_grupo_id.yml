@@ -1,0 +1,36 @@
+tags:
+  - Grupos
+summary: Lista as permissões associadas a um grupo
+operationId: listarUsingGET_5
+produces:
+  - application/json
+parameters:
+  - name: grupoId
+    in: path
+    description: ID do grupo
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/PermissoesModel'
+  '400':
+    description: ID do grupo inválido
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Grupo não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

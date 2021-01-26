@@ -1,0 +1,37 @@
+tags:
+  - Formas de pagamento
+summary: Cadastra uma forma de pagamento
+operationId: adicionarUsingPOST_3
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: Representação de uma nova forma de pagamento
+    required: true
+    schema:
+      $ref: '#/components/schemas/FormaPagamentoInput'
+responses:
+  '201':
+    description: Forma de pagamento cadastrada
+    schema:
+      $ref: '#/components/schemas/FormaPagamentoModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

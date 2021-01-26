@@ -1,0 +1,32 @@
+tags:
+  - Grupos
+summary: Exclui um grupo por ID
+operationId: removerUsingDELETE_4
+produces:
+  - application/json
+parameters:
+  - name: grupoId
+    in: path
+    description: ID de um grupo
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '204':
+    description: Grupo excluído
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Grupo não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false
