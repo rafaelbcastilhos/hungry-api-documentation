@@ -1,0 +1,39 @@
+tags:
+  - Grupos
+summary: Desassociação de permissão com grupo
+operationId: desassociarUsingDELETE
+produces:
+  - application/json
+parameters:
+  - name: grupoId
+    in: path
+    description: ID do grupo
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+  - name: permissaoId
+    in: path
+    description: ID da permissão
+    required: true
+    type: integer
+    format: int64
+    x-example: 1
+responses:
+  '204':
+    description: Desassociação realizada com sucesso
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '404':
+    description: Grupo ou permissão não encontrada
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false
