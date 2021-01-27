@@ -1,0 +1,36 @@
+tags:
+  - Pedidos
+summary: Busca um pedido por código
+operationId: buscarUsingGET_5
+produces:
+  - application/json
+parameters:
+  - name: campos
+    in: query
+    description: 'Nomes das propriedades para filtrar na resposta, separados por vírgula'
+    required: false
+    type: string
+  - name: codigoPedido
+    in: path
+    description: Código de um pedido
+    required: true
+    type: string
+    x-example: f9981ca4-5a5e-4da3-af04-933861df3e55
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/PedidoModel'
+  '404':
+    description: Pedido não encontrado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

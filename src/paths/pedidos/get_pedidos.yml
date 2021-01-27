@@ -1,0 +1,76 @@
+tags:
+  - Pedidos
+summary: Pesquisa os pedidos
+operationId: pesquisarUsingGET
+produces:
+  - application/json
+parameters:
+  - name: campos
+    in: query
+    description: 'Nomes das propriedades para filtrar na resposta, separados por vírgula'
+    required: false
+    type: string
+  - name: clienteId
+    in: query
+    description: ID do cliente para filtro da pesquisa
+    required: false
+    type: integer
+    format: int64
+    x-example: 1
+  - name: dataCriacaoFim
+    in: query
+    description: Data/hora de criação final para filtro da pesquisa
+    required: false
+    type: string
+    format: date-time
+    x-example: '2019-11-01T10:00:00Z'
+  - name: dataCriacaoInicio
+    in: query
+    description: Data/hora de criação inicial para filtro da pesquisa
+    required: false
+    type: string
+    format: date-time
+    x-example: '2019-10-30T00:00:00Z'
+  - name: page
+    in: query
+    description: Número da página (começa em 0)
+    required: false
+    type: integer
+    format: int32
+    x-example: 0
+  - name: restauranteId
+    in: query
+    description: ID do restaurante para filtro da pesquisa
+    required: false
+    type: integer
+    format: int64
+    x-example: 1
+  - name: size
+    in: query
+    description: Quantidade de elementos por página
+    required: false
+    type: integer
+    format: int32
+    x-example: 10
+  - name: sort
+    in: query
+    description: Nome da propriedade para ordenação
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+responses:
+  '200':
+    description: OK
+    schema:
+      $ref: '#/components/schemas/PedidosResumoModel'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '500':
+    description: Erro interno do servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false

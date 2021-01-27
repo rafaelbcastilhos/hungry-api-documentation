@@ -1,0 +1,37 @@
+tags:
+  - Pedidos
+summary: Registra um pedido
+operationId: adicionarUsingPOST_5
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: corpo
+    description: Representação de um novo pedido
+    required: true
+    schema:
+      $ref: '#/components/schemas/PedidoInput'
+responses:
+  '201':
+    description: Pedido registrado
+    schema:
+      $ref: '#/components/schemas/PedidoModel'
+  '400':
+    description: Requisição inválida (erro do cliente)
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '406':
+    description: Recurso não possui representação que poderia ser aceita pelo consumidor
+  '415':
+    description: Requisição recusada porque o corpo está em um formato não suportado
+    schema:
+      $ref: '#/components/schemas/Problema'
+  '500':
+    description: Erro interno no servidor
+    schema:
+      $ref: '#/components/schemas/Problema'
+security:
+  - bearerAuth: []
+deprecated: false
