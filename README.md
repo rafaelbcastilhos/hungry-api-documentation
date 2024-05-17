@@ -1,2 +1,2 @@
-# hungry-api-documentation
+# swagger-api-documentation
 RESTful API utilizando Swagger para documentação.
